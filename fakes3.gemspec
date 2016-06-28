@@ -2,7 +2,7 @@
 require File.join(File.dirname(__FILE__), 'lib', 'fakes3', 'version')
 
 Gem::Specification.new do |s|
-  s.name        = "fakes3"
+  s.name        = "fakes3-docker"
   s.version     = FakeS3::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Curtis Spencer"]
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.description = %q{Use FakeS3 to test basic S3 functionality without actually connecting to S3}
   s.license     = "MIT"
 
-  s.rubyforge_project = "fakes3"
+  s.rubyforge_project = "fakes3-docker"
 
   s.add_development_dependency "bundler", ">= 1.0.0"
   s.add_development_dependency "aws-s3"
