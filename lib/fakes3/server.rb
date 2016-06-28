@@ -10,6 +10,7 @@ require 'fakes3/bucket_query'
 require 'fakes3/unsupported_operation'
 require 'fakes3/errors'
 require 'ipaddr'
+require 'uri'
 
 module FakeS3
   class Request
@@ -51,6 +52,9 @@ module FakeS3
       @hostname = hostname
       @port = server.config[:Port]
       @root_hostnames = [hostname,'localhost','s3.amazonaws.com','s3.localhost']
+      if ENV.key?('DOCKER_HOST')
+        @root_hostnames << URI(ENV['DOCKER_HOST']).host
+      end
     end
 
     def validate_request(request)
